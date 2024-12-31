@@ -194,7 +194,7 @@ describe("aliases", () => {
       _: [],
       help: true
     };
-    const result = parse(input, { alias: { h: 'help' }});
+    const result = parse(input, { alias: { h: 'help' } });
     expect(result).toEqual(output);
   });
 
@@ -241,6 +241,19 @@ describe("special cases", () => {
       _: ['-'],
     };
     const result = parse(input);
+    expect(result).toEqual(output);
+  });
+
+  it("string after boolean should be treated as positional", () => {
+    const input = ["--get", "http://my-url.com"];
+    const opts = {
+      boolean: ['get']
+    }
+    const output = {
+      "_": ["http://my-url.com"],
+      "get": true,
+    };
+    const result = parse(input, opts);
     expect(result).toEqual(output);
   });
 });

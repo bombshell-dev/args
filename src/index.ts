@@ -92,7 +92,6 @@ export function parse<
   if (argv.length === 0) return {} as Args<TArgs>;
   const obj = { ...defaults, _: [] } as unknown as Args<TArgs>;
 
-  const args = [];
   for (let i = 0; i < argv.length; i++) {
     const curr = argv[i];
     const next = argv[i + 1];
@@ -122,9 +121,14 @@ export function parse<
         }
       } else if (!curr.includes("=") && next && next[0] !== "-") {
         key = curr.replace(/^-{1,2}/, '');
-        value = next;
         t = type(key, types as any);
-        i++;
+        // treat boolean as flag without parameter
+        if (t === 'boolean') {
+          value = 'true';
+        } else {
+          value = next;
+          i++;
+        }
       } else {
         const eq = curr.indexOf('=');
         if (eq === -1) {
@@ -135,7 +139,7 @@ export function parse<
         }
         t = type(key, types as any);
       }
-      
+
       if ((!t || t === "boolean") && key.length > 3 && key.startsWith('no-')) {
         set(obj, key.slice(3), false)
       } else {
