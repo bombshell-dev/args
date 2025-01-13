@@ -1,13 +1,16 @@
 # `ultraflag`
 
-A 730B library for parsing CLI flags. Inspired by Deno's `std` [`flags`](https://github.com/denoland/deno_std/blob/main/flags/mod.ts) module.
+A <1kB library for parsing CLI flags. Inspired by Deno's `std` [`flags`](https://github.com/denoland/deno_std/blob/main/flags/mod.ts) module.
 
 ### Features
 
-- It's very small.
-- It's very fast.
-- It's type-safe.
-- It's simpler (and faster!) than [`parseArgs` from `node:util`](https://nodejs.org/api/util.html#utilparseargsconfig).
+🤏 very small
+
+🍃 very simple
+
+🏃 very fast (beats [`node:util`](https://nodejs.org/api/util.html#utilparseargsconfig))
+
+🔏 strongly typed
 
 ### Usage
 
@@ -24,7 +27,7 @@ console.log(args);
 // { _: ['build'], bundle: true, r: true, f: true, a: "value", b: "value", c: 1 }
 ```
 
-Parsing can be configured to ensure arguments are coerced to specific types.
+Parsing can be configured to ensure arguments are coerced to specific types, which enhances type safety.
 
 ```js
 const args = parse(argv, {
