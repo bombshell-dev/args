@@ -1,5 +1,11 @@
 # ultraflag
 
+## 0.2.1
+
+### Patch Changes
+
+- 8a8ed93: Fixes an edge case where passing an empty `argv` array would return an empty object without default values.
+
 ## 0.2.0
 
 ### Minor Changes
