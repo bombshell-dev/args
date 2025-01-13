@@ -6,7 +6,8 @@ A 730B library for parsing CLI flags. Inspired by Deno's `std` [`flags`](https:/
 
 - It's very small.
 - It's very fast.
-- It's a nicer API (and faster!) than [`parseArgs` from `node:util`](https://nodejs.org/api/util.html#utilparseargsconfig).
+- It's type-safe.
+- It's simpler (and faster!) than [`parseArgs` from `node:util`](https://nodejs.org/api/util.html#utilparseargsconfig).
 
 ### Usage
 
@@ -23,7 +24,7 @@ console.log(args);
 // { _: ['build'], bundle: true, r: true, f: true, a: "value", b: "value", c: 1 }
 ```
 
-Parsing can be configured to ensure values are handled in a certain format.
+Parsing can be configured to ensure arguments are coerced to specific types.
 
 ```js
 const args = parse(argv, {
