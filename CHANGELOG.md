@@ -1,5 +1,11 @@
 # ultraflag
 
+## 0.2.0
+
+### Minor Changes
+
+- d1774a6: Treat boolean arguments as positionals
+
 ## 0.1.0
 
 ### Minor Changes
