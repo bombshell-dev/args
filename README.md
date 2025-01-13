@@ -6,6 +6,7 @@ A 730B library for parsing CLI flags. Inspired by Deno's `std` [`flags`](https:/
 
 - It's very small.
 - It's very fast.
+- It's a nicer API (and faster!) than [`parseArgs` from `node:util`](https://nodejs.org/api/util.html#utilparseargsconfig).
 
 ### Usage
 
@@ -37,8 +38,9 @@ const args = parse(argv, {
 ## Benchmarks
 
 ```
-mri           x 1,285,159 ops/sec ±0.29% (90 runs sampled)
-ultraflag     x 986,699 ops/sec ±0.38% (91 runs sampled)
-minimist      x 250,866 ops/sec ±0.59% (92 runs sampled)
-yargs-parser  x 18,153 ops/sec ±4.30% (85 runs sampled)
+mri           x 1,650,986 ops/sec ±0.32% (97 runs sampled)
+ultraflag     x 1,407,191 ops/sec ±0.38% (99 runs sampled)
+minimist      x 383,506 ops/sec ±0.28% (99 runs sampled)
+node:util     x 320,953 ops/sec ±0.35% (98 runs sampled)
+yargs-parser  x 31,874 ops/sec ±1.32% (92 runs sampled)
 ```
