@@ -1,5 +1,11 @@
 # ultraflag
 
+## 0.2.3
+
+### Patch Changes
+
+- Updates README to include more context
+
 ## 0.2.2
 
 ### Patch Changes
