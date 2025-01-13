@@ -1,12 +1,12 @@
 import type {
-  ParseOptions,
-  Args,
-  NestedMapping,
-  Values,
-  BooleanType,
-  StringType,
-  Collectable,
   Aliases,
+  Args,
+  BooleanType,
+  Collectable,
+  NestedMapping,
+  ParseOptions,
+  StringType,
+  Values,
 } from "./types.js";
 export { ParseOptions, Args } from "./types.js";
 
@@ -18,7 +18,7 @@ const set = (obj: NestedMapping, key: string, value: any, type?: string) => {
     const parts = key.split(".");
     for (let i = 0; i < parts.length - 1; i++) {
       const k = parts[i];
-      let tmp = {};
+      const tmp = {};
       set(obj, k, tmp);
       obj = tmp;
     }
@@ -89,8 +89,8 @@ export function parse<
     ...types
   }: ParseOptions<TBooleans, TStrings, TCollectable, TDefaults, TAliases> = {}
 ): Args<TArgs> {
-  if (argv.length === 0) return {} as Args<TArgs>;
   const obj = { ...defaults, _: [] } as unknown as Args<TArgs>;
+  if (argv.length === 0) return obj;
 
   for (let i = 0; i < argv.length; i++) {
     const curr = argv[i];
