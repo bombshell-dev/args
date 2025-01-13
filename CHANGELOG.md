@@ -1,5 +1,11 @@
 # ultraflag
 
+## 0.2.2
+
+### Patch Changes
+
+- 9381b11: Updates README to include `node:util`
+
 ## 0.2.1
 
 ### Patch Changes
