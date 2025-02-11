@@ -1,7 +1,7 @@
+import colors from 'chalk';
 import { build } from "esbuild";
 import { gzipSizeFromFileSync } from 'gzip-size';
 import bytes from 'pretty-bytes';
-import colors from 'chalk';
 
 async function run() {
     const files = ['src/index.ts'];

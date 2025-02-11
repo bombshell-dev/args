@@ -1,16 +1,20 @@
 {
-  "name": "ultraflag",
+  "name": "@bomb.sh/args",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "type": "module",
   "version": "0.2.3",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/natemoo-re/ultraflag"
+    "url": "https://github.com/bombshell-dev/args"
   },
   "bugs": {
-    "url": "https://github.com/natemoo-re/ultraflag/issues"
+    "url": "https://github.com/bombshell-dev/args/issues"
   },
-  "homepage": "https://github.com/natemoo-re/ultraflag#README",
+  "homepage": "https://github.com/bombshell-dev/args#README",
   "scripts": {
     "build": "node scripts/build.js && tsc -p .",
     "lint": "prettier \"**/*.{js,ts,md}\"",
@@ -38,7 +42,7 @@
   "author": {
     "name": "Nate Moore",
     "email": "nate@natemoo.re",
-    "url": "https://twitter.com/n_moore"
+    "url": "https://natemoo.re"
   },
   "license": "MIT",
   "volta": {

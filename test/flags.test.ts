@@ -1,5 +1,5 @@
-import { parse } from "../src";
 import { describe, expect, it, test } from "vitest";
+import { parse } from "../src";
 
 describe("flags", () => {
   it("a b c", () => {

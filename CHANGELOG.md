@@ -1,4 +1,4 @@
-# ultraflag
+# @bomb.sh/args (fka `ultraflag`)
 
 ## 0.2.3
 
