@@ -1,5 +1,11 @@
 # @bomb.sh/args (fka `ultraflag`)
 
+## 0.3.0
+
+### Minor Changes
+
+- 726edef: Rename `ultraflag` to `@bomb.sh/args`
+
 ## 0.2.3
 
 ### Patch Changes

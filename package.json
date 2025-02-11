@@ -5,7 +5,7 @@
     "provenance": true
   },
   "type": "module",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
