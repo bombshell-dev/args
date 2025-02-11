@@ -51,4 +51,4 @@ yargs-parser      x 31,874 ops/sec ±1.32% (92 runs sampled)
 
 ## Acknowledgements
 
-This package was previously published as `ultraflag` up until `v0.2.3`, when it was transferred to `@bomb.sh/args`.
+This package was previously published as `ultraflag` up until `v0.3.0`, when it was renamed to `@bomb.sh/args`.
