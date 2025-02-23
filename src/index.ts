@@ -56,7 +56,7 @@ const defaultValue = (type?: "boolean" | "string" | "array") => {
 
 const coerce = (value?: string, type?: "string" | "boolean" | "array") => {
   if (type === "string") return value;
-  if (type === "boolean") return !!value;
+  if (type === "boolean") return value === undefined ? true : value === 'true';
 
   if (!value) return value;
   if (value.length > 3 && BOOL_RE.test(value)) return value === "true";
