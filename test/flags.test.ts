@@ -257,3 +257,24 @@ describe("special cases", () => {
     expect(result).toEqual(output);
   });
 });
+
+describe("boolean flags", () => {
+  it("should handle long-form boolean flags correctly", () => {
+    const input = ["--add"];
+    const opts = {
+      boolean: ['add']
+    };
+    const output = { _: [], add: true };
+    expect(parse(input, opts)).toEqual(output);
+  });
+
+  it("should handle alias boolean flags correctly", () => {
+    const input = ["-a"];
+    const opts = {
+      boolean: ['add'],
+      alias: { a: 'add' }
+    };
+    const output = { _: [], add: true };
+    expect(parse(input, opts)).toEqual(output);
+  });
+});
