@@ -1,5 +1,11 @@
 # @bomb.sh/args (fka `ultraflag`)
 
+## 0.3.1
+
+### Patch Changes
+
+- aafc601: Fixes a bug which set longhand `--boolean` args to `false` ([#8](https://github.com/bombshell-dev/args/pull/8))
+
 ## 0.3.0
 
 ### Minor Changes
