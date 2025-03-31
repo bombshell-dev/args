@@ -1,0 +1,11 @@
+name: Preview
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    if: github.repository_owner == 'bombshell-dev'
+    uses: bombshell-dev/automation/.github/workflows/preview.yml@main
+    secrets: inherit
+    with:
+        publish: '.'

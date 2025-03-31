@@ -1,0 +1,13 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    if: github.repository_owner == 'bombshell-dev'
+    uses: bombshell-dev/automation/.github/workflows/publish.yml@main
+    secrets: inherit
