@@ -37,7 +37,7 @@ const set = (obj: NestedMapping, key: string, value: any, type?: string) => {
 
 const type = (
   key: string,
-  opts: Record<"boolean" | "string" | "array", string[]>,
+  opts: Record<"boolean" | "string" | "array", string[]>
 ): "boolean" | "string" | "array" | undefined => {
   if (opts.array && opts.array.length > 0 && opts.array.includes(key))
     return "array";
@@ -56,13 +56,12 @@ const defaultValue = (type?: "boolean" | "string" | "array") => {
 
 const coerce = (value?: string, type?: "string" | "boolean" | "array") => {
   if (type === "string") return value;
-  if (type === "boolean") return value === undefined ? true : value === "true";
+  if (type === "boolean") return value === undefined ? true : value === 'true';
 
   if (!value) return value;
   if (value.length > 3 && BOOL_RE.test(value)) return value === "true";
   if (value.length > 2 && QUOTED_RE.test(value)) return value.slice(1, -1);
-  if ((value[0] === "." && /\d/.test(value[1])) || /\d/.test(value[0]))
-    return Number(value);
+  if (value[0] === '.' && /\d/.test(value[1]) || /\d/.test(value[0])) return Number(value);
   return value;
 };
 
@@ -81,14 +80,14 @@ export function parse<
   TDefaults extends Record<string, unknown> | undefined = undefined,
   TAliases extends Aliases<TAliasArgNames, TAliasNames> | undefined = undefined,
   TAliasArgNames extends string = string,
-  TAliasNames extends string = string,
+  TAliasNames extends string = string
 >(
   argv: string[],
   {
     default: defaults,
     alias: aliases,
     ...types
-  }: ParseOptions<TBooleans, TStrings, TCollectable, TDefaults, TAliases> = {},
+  }: ParseOptions<TBooleans, TStrings, TCollectable, TDefaults, TAliases> = {}
 ): Args<TArgs> {
   const obj = { ...defaults, _: [] } as unknown as Args<TArgs>;
   if (argv.length === 0) return obj;
@@ -97,60 +96,57 @@ export function parse<
     const curr = argv[i];
     const next = argv[i + 1];
 
-    let t: "string" | "boolean" | "array" | undefined;
-    let key = "";
+    let t: 'string' | 'boolean' | 'array' | undefined;
+    let key = '';
     let value: string | undefined;
 
     if (curr.length > 1 && curr[0] === "-") {
-      if (curr[1] !== "-" && curr.length > 2 && !curr.includes("=")) {
-        if (curr.includes(".")) {
+      if (curr[1] !== "-" && curr.length > 2 && !curr.includes('=')) {
+        if (curr.includes('.')) {
           key = curr.slice(1, 2);
           value = curr.slice(2);
         } else {
           const keys = curr.slice(1, -1);
           for (let key of keys) {
-            if (
-              aliases &&
-              (aliases as Record<string, any>)[key] !== undefined
-            ) {
+            if (aliases && (aliases as Record<string, any>)[key] !== undefined) {
               key = aliases[key as keyof typeof aliases] as string;
             }
-            set(obj, key, defaultValue(t), t);
+            set(obj, key, defaultValue(t), t)
           }
-          key = curr.slice(-1);
-          if (next && next[0] !== "-") {
+          key = curr.slice(-1)
+          if (next && next[0] !== '-') {
             value = next;
             i++;
           }
         }
       } else if (!curr.includes("=") && next && next[0] !== "-") {
-        key = curr.replace(/^-{1,2}/, "");
+        key = curr.replace(/^-{1,2}/, '');
         t = type(key, types as any);
         // treat boolean as flag without parameter
-        if (t === "boolean") {
-          value = "true";
+        if (t === 'boolean') {
+          value = 'true';
         } else {
           value = next;
           i++;
         }
       } else {
-        const eq = curr.indexOf("=");
+        const eq = curr.indexOf('=');
         if (eq === -1) {
-          key = curr.replace(/^-{1,2}/, "");
+          key = curr.replace(/^-{1,2}/, '');
         } else {
-          key = curr.slice(0, eq).replace(/^-{1,2}/, "");
+          key = curr.slice(0, eq).replace(/^-{1,2}/, '');
           value = curr.slice(eq + 1);
         }
         t = type(key, types as any);
       }
 
-      if ((!t || t === "boolean") && key.length > 3 && key.startsWith("no-")) {
-        set(obj, key.slice(3), false);
+      if ((!t || t === "boolean") && key.length > 3 && key.startsWith('no-')) {
+        set(obj, key.slice(3), false)
       } else {
         if (aliases && (aliases as Record<string, any>)[key] !== undefined) {
           key = aliases[key as keyof typeof aliases] as string;
         }
-        set(obj, key, coerce(value, t) ?? defaultValue(t), t);
+        set(obj, key, coerce(value, t) ?? defaultValue(t), t)
       }
     } else if (curr) {
       (obj as any)._.push(coerce(curr));
