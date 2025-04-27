@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@bomb.sh/tools':
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^0.0.5
+        version: 0.0.5
       '@changesets/cli':
         specifier: ^2.18.1
         version: 2.27.11
@@ -110,8 +110,8 @@ packages:
   '@bomb.sh/args@0.3.1':
     resolution: {integrity: sha512-CwxKrfgcorUPP6KfYD59aRdBYWBTsfsxT+GmoLVnKo5Tmyoqbpo0UNcjngRMyU+6tiPbd18RuIYxhgAn44wU/Q==}
 
-  '@bomb.sh/tools@0.0.3':
-    resolution: {integrity: sha512-gbX7cc7BiIW6I+4UcKKRJ1WkftTQ5/kMT0PILNW9wi55i3EvfaiJ3eMuHahzTroMx9eNuRIP9nJfK9My7Y3/nQ==}
+  '@bomb.sh/tools@0.0.5':
+    resolution: {integrity: sha512-1KTr9jAVUEbnaVhQLwi7KtYYnlZcymh7kkhY/Ti6/EOSFC7uuAq5/2vY9L+iRvUBkR6eKFgveRQKguyMOkMn4w==}
     hasBin: true
 
   '@changesets/apply-release-plan@7.0.7':
@@ -1053,7 +1053,7 @@ snapshots:
 
   '@bomb.sh/args@0.3.1': {}
 
-  '@bomb.sh/tools@0.0.3':
+  '@bomb.sh/tools@0.0.5':
     dependencies:
       '@biomejs/biome': 1.9.4
       '@bomb.sh/args': 0.3.1

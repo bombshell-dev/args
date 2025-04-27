@@ -30,7 +30,7 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@bomb.sh/tools": "^0.0.3",
+    "@bomb.sh/tools": "^0.0.5",
     "@changesets/cli": "^2.18.1",
     "benchmark": "^2.1.4",
     "chalk": "^5.4.1",
