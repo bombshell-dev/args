@@ -1,31 +1,19 @@
 {
   "name": "@bomb.sh/args",
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "type": "module",
   "version": "0.3.1",
-  "types": "./dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bombshell-dev/args"
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Bombshell",
+    "email": "oss@bomb.sh",
+    "url": "https://bomb.sh"
   },
-  "bugs": {
-    "url": "https://github.com/bombshell-dev/args/issues"
-  },
-  "homepage": "https://github.com/bombshell-dev/args#README",
-  "scripts": {
-    "build": "node scripts/build.js && tsc -p .",
-    "bench": "node scripts/bench.js",
-    "dev": "vitest",
-    "fmt": "prettier --write \"**/*.{js,ts,md}\"",
-    "fmt:check": "prettier --list-different \"**/*.{js,ts,md}\"",
-    "test": "vitest run"
-  },
-  "files": [
-    "dist",
-    "CHANGELOG.md"
+  "homepage": "https://github.com/bombshell-dev/args",
+  "keywords": [
+    "cli",
+    "args",
+    "yargs",
+    "minimist"
   ],
   "exports": {
     ".": {
@@ -34,23 +22,15 @@
     },
     "./package.json": "./package.json"
   },
-  "keywords": [
-    "cli",
-    "args",
-    "yargs",
-    "minimist"
-  ],
-  "author": {
-    "name": "Nate Moore",
-    "email": "nate@natemoo.re",
-    "url": "https://natemoo.re"
+  "scripts": {
+    "dev": "bsh dev",
+    "build": "bsh build",
+    "format": "bsh format",
+    "lint": "bsh lint",
+    "test": "vitest run"
   },
-  "license": "MIT",
-  "volta": {
-    "node": "22.14.0"
-  },
-  "packageManager": "pnpm@10.7.0",
   "devDependencies": {
+    "@bomb.sh/tools": "^0.0.5",
     "@changesets/cli": "^2.18.1",
     "benchmark": "^2.1.4",
     "chalk": "^5.4.1",
@@ -63,5 +43,29 @@
     "typescript": "^4.7.4",
     "vitest": "^3.0.9",
     "yargs-parser": "^21.1.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bombshell-dev/args"
+  },
+  "volta": {
+    "node": "22.14.0"
+  },
+  "packageManager": "pnpm@10.7.0",
+  "devEngines": {
+      "runtime": {
+          "name": "node",
+          "version": "22.14.0",
+          "onFail": "error"
+      },
+      "packageManager": {
+          "name": "pnpm",
+          "version": "10.7.0",
+          "onFail": "error"
+      }
   }
 }
