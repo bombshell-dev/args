@@ -8,7 +8,7 @@ import type {
 	StringType,
 	Values,
 } from "./types.js";
-export { ParseOptions, Args } from "./types.js";
+export type { ParseOptions, Args } from "./types.js";
 
 const BOOL_RE = /^(true|false)$/;
 const QUOTED_RE = /^('|").*\1$/;
