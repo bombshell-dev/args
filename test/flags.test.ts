@@ -258,6 +258,39 @@ describe("special cases", () => {
   });
 });
 
+
+describe("double dash terminator", () => {
+  it("treats arguments after -- as positionals even with leading dashes", () => {
+    const input = ["--", "-pos"];
+    const output = { _: ["-pos"] };
+    expect(parse(input)).toEqual(output);
+  });
+
+  it("supports positionals starting with double dashes after --", () => {
+    const input = ["--", "--pos"];
+    const output = { _: ["--pos"] };
+    expect(parse(input)).toEqual(output);
+  });
+
+  it("keeps flags before -- and positionals after", () => {
+    const input = ["-a", "1", "--", "-b", "--c", "plain"];
+    const output = { _: ["-b", "--c", "plain"], a: 1 };
+    expect(parse(input)).toEqual(output);
+  });
+
+  it("does not include the -- terminator itself in positionals", () => {
+    const input = ["foo", "--"];
+    const output = { _: ["foo"] };
+    expect(parse(input)).toEqual(output);
+  });
+
+  it("treats a later -- after the terminator as a positional", () => {
+    const input = ["--", "a", "--", "b"];
+    const output = { _: ["a", "--", "b"] };
+    expect(parse(input)).toEqual(output);
+  });
+});
+
 describe("boolean flags", () => {
   it("should handle long-form boolean flags correctly", () => {
     const input = ["--add"];
