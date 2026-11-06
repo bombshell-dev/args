@@ -7,7 +7,7 @@ on:
 jobs:
   format:
     if: github.repository_owner == 'bombshell-dev'
-    uses: bombshell-dev/automation/.github/workflows/preview.yml@main
+    uses: bombshell-dev/automation/.github/workflows/preview.yml@0c11c22d745695ae196865bca0d0cc177263bee9
     secrets: inherit
     with:
         publish: '.'
