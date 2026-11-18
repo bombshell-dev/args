@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@bomb.sh/tools": "^0.0.5",
-    "@changesets/cli": "^2.29.8",
+    "@changesets/cli": "^3.0.3",
     "benchmark": "^2.1.4",
     "chalk": "^5.6.2",
     "esbuild": "^0.27.3",
