@@ -101,6 +101,14 @@ export function parse<
 		let key = "";
 		let value: string | undefined;
 
+		// Everything after a bare `--` is positional, even if it looks like a flag.
+		if (curr === "--") {
+			for (let j = i + 1; j < argv.length; j++) {
+				(obj as any)._.push(coerce(argv[j]));
+			}
+			break;
+		}
+
 		if (curr.length > 1 && curr[0] === "-") {
 			if (curr[1] !== "-" && curr.length > 2 && !curr.includes("=")) {
 				if (curr.includes(".")) {
