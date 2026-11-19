@@ -42,11 +42,12 @@ const args = parse(argv, {
 ## Benchmarks
 
 ```
-mri               x 1,650,986 ops/sec ±0.32% (97 runs sampled)
-@bomb.sh/args     x 1,407,191 ops/sec ±0.38% (99 runs sampled)
-minimist          x 383,506 ops/sec ±0.28% (99 runs sampled)
-node:util         x 320,953 ops/sec ±0.35% (98 runs sampled)
-yargs-parser      x 31,874 ops/sec ±1.32% (92 runs sampled)
+name                     hz     min     max    mean     p75     p99    p995    p999     rme  samples
+mri            2,359,009.67  0.0003  0.2093  0.0004  0.0005  0.0005  0.0006  0.0008  ±0.27%  2292741   fastest
+@bomb.sh/args  2,069,310.53  0.0004  1.4586  0.0005  0.0005  0.0007  0.0007  0.0015  ±0.42%  1990450
+minimist         621,719.19  0.0013  0.7790  0.0017  0.0016  0.0021  0.0022  0.0086  ±0.33%   601637
+node:util        467,232.42  0.0018  3.8326  0.0022  0.0022  0.0027  0.0028  0.0035  ±0.97%   456879
+yargs-parser      47,744.54  0.0181  0.4379  0.0213  0.0210  0.0293  0.0373  0.1160  ±0.26%    46963   slowest
 ```
 
 ## Acknowledgements
